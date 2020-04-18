@@ -15,7 +15,6 @@ import org.java_websocket.handshake.ServerHandshake;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.nio.ByteBuffer;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         mEditTextMessage = findViewById(R.id.editTextMessage);
         mButtonSend = findViewById(R.id.buttonSend);
 
+        connectWebSocket();
+
         mButtonSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private void connectWebSocket() {
         URI uri;
         try {
-            uri = new URI("ws://192.168.43.47:8887");
+            uri = new URI("ws://192.168.43.174:8887");
         } catch (URISyntaxException e) {
             e.printStackTrace();
             return;
